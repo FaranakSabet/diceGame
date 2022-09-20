@@ -34,14 +34,34 @@ rollBtn.addEventListener("click", function () {
     message.textContent = "Player 1 Turn";
   }
   if (player1Score >= 20){
-    message.textContent = "Player 1 Won!";
+    message.textContent = "Player 1 Won! 🥳";
     displayBtn();
     
   }else if(player2Score >= 20){
-    message.textContent = "Player 2 Won!";
+    message.textContent = "Player 2 Won! 🎉";
     displayBtn();
    
   }
 
   player1Turn = !player1Turn;
 });
+
+resetBtn.addEventListener("click", function(){
+    reset();
+})
+
+function reset(){
+    message.textContent = "Player 1 Turn!";
+    player1Scoreboard.textContent = 0;
+    player2Scoreboard.textContent = "0";
+    player1Dice.textContent = "-";
+    player2Dice.textContent = "-";
+    player1Score = 0;
+    player2Score = 0;
+    player1Turn = true;
+    resetBtn.style.display = "none";
+    rollBtn.style.display = "block";
+    player2Dice.classList.remove("active");
+    player1Dice.classList.add("active");
+
+}
